@@ -1,0 +1,48 @@
+{
+  "node": "v25.8.0",
+  "full_suite": {
+    "command": "just test",
+    "passed": 102,
+    "failed": 0,
+    "skipped": 0,
+    "exit_code": 0,
+    "log": "full-suite.log"
+  },
+  "lint": {
+    "command": "just lint",
+    "exit_code": 0,
+    "files_checked": 229
+  },
+  "stability": {
+    "command": "node --test --test-reporter=dot tests/campaign.test.mjs tests/adapters.test.mjs tests/environment.test.mjs tests/lifecycle.test.mjs tests/test-artifacts.test.mjs tests/campaign-demo.test.mjs",
+    "repetitions": 3,
+    "tests_per_repetition": 44,
+    "exit_codes": [
+      0,
+      0,
+      0
+    ]
+  },
+  "example": {
+    "command": "npm run demo -- --out work/campaign-demo-final",
+    "reconciled": true,
+    "operations": 3,
+    "native_cases": {
+      "passed": 1,
+      "skipped": 1
+    },
+    "remaining": [
+      "objects.delete"
+    ]
+  },
+  "review": {
+    "model": "gpt-6.1-terra",
+    "effort": "high",
+    "result": "No remaining actionable findings after corrections"
+  },
+  "openspec": {
+    "change": "lab-campaign-continuity",
+    "validation": "passed",
+    "state": "active; implementation complete; not archived"
+  }
+}

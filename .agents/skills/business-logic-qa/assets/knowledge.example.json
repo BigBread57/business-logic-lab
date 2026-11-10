@@ -1,0 +1,6 @@
+{
+  "project": "example",
+  "sources": [{"id": "business", "kind": "business", "path": "docs/business-process.md", "revision": "draft"}],
+  "rules": [{"id": "BOOK-01", "statement": "Confirmed reservations do not exceed capacity", "sources": ["business"], "status": "candidate"}],
+  "gaps": [{"id": "GAP-01", "statement": "Agree retry and convergence behavior before testing"}]
+}

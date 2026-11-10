@@ -1,0 +1,13 @@
+{
+  "id": "capacity",
+  "rules": ["BOOK-01"],
+  "variables": {"resource_id": "REPLACE_WITH_ISOLATED_RESOURCE"},
+  "steps": [
+    {"parallel": [
+      {"target": "api", "actor": "author", "method": "POST", "path": "/reservations", "body": {"resource_id": "${resource_id}", "request_id": "${correlation_id}-a"}},
+      {"target": "api", "actor": "reviewer", "method": "POST", "path": "/reservations", "body": {"resource_id": "${resource_id}", "request_id": "${correlation_id}-b"}}
+    ]},
+    {"target": "api", "actor": "author", "path": "/resources/${resource_id}", "within_ms": 2000, "poll_ms": 200,
+     "assert": [{"rule": "BOOK-01", "path": "$.confirmed_count", "op": "lte", "value": 1}]}
+  ]
+}

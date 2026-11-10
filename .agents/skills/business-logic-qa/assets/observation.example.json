@@ -1,0 +1,6 @@
+{
+  "id": "unknown-behavior",
+  "mode": "observation",
+  "question": "What fields and visibility does this endpoint currently expose?",
+  "steps": [{"target": "api", "actor": "author", "path": "/resources"}]
+}

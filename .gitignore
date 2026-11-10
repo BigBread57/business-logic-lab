@@ -1,0 +1,12 @@
+work/
+runs/
+**/private/
+**/__pycache__/
+*.pyc
+node_modules/
+.pytest_cache/
+.env
+.env.*
+!.env.example
+projects/rsa-folders/local/vite-cache/
+projects/rsa-folders/local/control.json

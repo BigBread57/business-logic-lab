@@ -1,0 +1,17 @@
+{
+  "name": "business-logic-lab",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test --test-concurrency=2 tests/*.test.mjs",
+    "lint": "node scripts/check.mjs",
+    "qa": "node .agents/skills/business-logic-qa/scripts/qa.mjs",
+    "campaign": "node .agents/skills/business-logic-qa/scripts/campaign.mjs",
+    "environment": "node .agents/skills/business-logic-qa/scripts/environment.mjs",
+    "test-artifacts": "node .agents/skills/business-logic-qa/scripts/test-artifacts.mjs",
+    "demo": "node examples/campaign-demo.mjs"
+  }
+}

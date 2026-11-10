@@ -1,0 +1,39 @@
+{
+  "project": "example",
+  "environment": "local",
+  "targets": {
+    "api": "http://localhost:8080"
+  },
+  "allowed_origins": [
+    "http://localhost:8080"
+  ],
+  "actors": {
+    "author": {
+      "headers_env": {
+        "Authorization": "AUTHOR_AUTH"
+      }
+    },
+    "reviewer": {
+      "headers_env": {
+        "Authorization": "REVIEWER_AUTH"
+      }
+    }
+  },
+  "permissions": [
+    "read",
+    "mutate",
+    "load"
+  ],
+  "budget_seconds": 1200,
+  "team": {
+    "mode": "coordinator",
+    "workers": 3
+  },
+  "limits": {
+    "request_timeout_ms": 10000,
+    "max_requests": 200,
+    "max_parallel": 4,
+    "load_iterations": 10
+  },
+  "data_namespace": "qa-local-only"
+}

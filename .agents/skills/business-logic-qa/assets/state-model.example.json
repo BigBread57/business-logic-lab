@@ -1,0 +1,17 @@
+{
+  "initial": "empty",
+  "states": ["empty", "ready", "published"],
+  "transitions": [
+    {"id": "create", "from": "empty", "to": "ready", "steps": [{"target": "api", "actor": "author", "method": "POST", "path": "/lab/resource"}]},
+    {"id": "read", "from": "ready", "to": "ready", "steps": [{"target": "api", "actor": "author", "path": "/lab/resource"}]},
+    {"id": "publish", "from": "ready", "to": "published", "steps": [{"target": "api", "actor": "author", "method": "POST", "path": "/lab/resource/publish"}]}
+  ],
+  "reset": {
+    "id": "reset", "rules": ["BOOK-01"],
+    "steps": [{"target": "api", "actor": "author", "method": "POST", "path": "/lab/reset", "assert": [{"rule": "BOOK-01", "path": "$.confirmed_count", "op": "eq", "value": 0}]}]
+  },
+  "probe": {
+    "id": "capacity", "rules": ["BOOK-01"],
+    "steps": [{"target": "api", "actor": "author", "path": "/lab/resource", "assert": [{"rule": "BOOK-01", "path": "$.confirmed_count", "op": "lte", "value": 1}]}]
+  }
+}
